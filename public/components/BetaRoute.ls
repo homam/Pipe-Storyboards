@@ -36,7 +36,7 @@ module.exports = create-class do
         Storyboard do 
 
             # the pipe-server to get queries from
-            url: \http://p.mobitrans.com:3000
+            url: \http://ndemo.pipend.com
 
             # a list of ui controls corresponding to the parameters of the child queries
             controls: 
@@ -77,7 +77,7 @@ module.exports = create-class do
                 # the values from the ui-controls (passed as controls prop above) will be mapped to parameters
                 # and passed to each child query / layout
                 #Story branch-id: \pABXynQ, style: width: \50%
-                Story branch-id: \pAIiNPL, style: width: \100%
+                Story branch-id: \pAKheI0, style: width: \100%
 
     # get-initial-state :: a -> UIState
     get-initial-state: ->  { }
