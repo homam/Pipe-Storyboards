@@ -123,3 +123,19 @@ gulp.task \default, -> run-sequence do
         build-and-watch:components:scripts
     ]>
     \dev:server 
+
+
+gulp.task \deploy-gh-pages, ->
+    gulp.src './public/index.html'
+    .pipe gulp.dest './gh-pages'
+
+    gulp.src './public/components/*.js'
+    .pipe gulp.dest './gh-pages/components'
+
+    gulp.src './public/components/*.css'
+    .pipe gulp.dest './gh-pages/components'
+
+
+    # https://github.com/shinnn/gulp-gh-pages
+    # https://www.npmjs.com/package/gulp-clean
+    # https://github.com/peter-vilja/gulp-clean/blob/master/index.js
