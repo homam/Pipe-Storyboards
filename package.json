@@ -1,0 +1,44 @@
+{
+  "name": "react-livescript-starter-kit",
+  "version": "0.0.1",
+  "description": "react livescript starter kit",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha test/index.ls --compilers ls:livescript",
+    "coverage": "gulp coverage",
+    "coveralls": "gulp coverage  && cat coverage/lcov.info | coveralls"
+  },
+  "author": "Pipend",
+  "license": "MIT",
+  "devDependencies": {
+    "coveralls": "^2.11.4",
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.3.1",
+    "gulp-if": "^2.0.0",
+    "gulp-livescript": "^3.0.0",
+    "gulp-livescript-istanbul": "0.0.1",
+    "gulp-mocha": "^2.2.0",
+    "gulp-streamify": "^1.0.2",
+    "gulp-stylus": "^2.2.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-util": "^3.0.7",
+    "liveify": "^2.0.0",
+    "livescript": "^1.4.0",
+    "nib": "^1.1.0",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "run-sequence": "^1.1.5",
+    "underscore": "^1.8.3",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0"
+  },
+  "peerDependencies": {
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6"
+  },
+  "dependencies": {
+    "prelude-ls": "^1.1.1",
+    "prelude-extension": "0.0.8",
+    "react-router": "^2.0.0-rc4"
+  }
+}
