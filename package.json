@@ -1,14 +1,14 @@
 {
-  "name": "react-livescript-starter-kit",
+  "name": "pipe-storyboard-showcase",
   "version": "0.0.1",
-  "description": "react livescript starter kit",
+  "description": "Pipe Storyboard showcase",
   "main": "src/index.js",
   "scripts": {
     "test": "mocha test/index.ls --compilers ls:livescript",
     "coverage": "gulp coverage",
     "coveralls": "gulp coverage  && cat coverage/lcov.info | coveralls"
   },
-  "author": "Pipend",
+  "author": "Homam",
   "license": "MIT",
   "devDependencies": {
     "coveralls": "^2.11.4",
@@ -37,10 +37,12 @@
     "react-dom": "^0.14.6"
   },
   "dependencies": {
+    "gulp-gh-pages": "^0.5.4",
     "history": "^2.0.0-rc2",
     "pipe-storyboard": "0.0.8",
     "prelude-extension": "0.0.8",
     "prelude-ls": "^1.1.1",
-    "react-router": "^2.0.0-rc4"
+    "react-router": "^2.0.0-rc4",
+    "through2": "^2.0.0"
   }
 }

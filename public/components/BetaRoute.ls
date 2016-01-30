@@ -77,7 +77,7 @@ module.exports = create-class do
                 # the values from the ui-controls (passed as controls prop above) will be mapped to parameters
                 # and passed to each child query / layout
                 #Story branch-id: \pABXynQ, style: width: \50%
-                Story branch-id: \pAKheI0, style: width: \100%
+                Story branch-id: \pAKheI0, show-links: false, style: width: \100%
 
     # get-initial-state :: a -> UIState
     get-initial-state: ->  { }

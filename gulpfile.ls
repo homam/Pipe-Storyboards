@@ -114,6 +114,13 @@ gulp.task \coverage, ->
 gulp.task \build:src, <[build:src:styles build:src:scripts]>
 gulp.task \watch:src, <[watch:src:styles watch:src:scripts]>
 gulp.task \build:components, <[build:components:styles build:components:scripts]>
+gulp.task \build, -> run-sequence do 
+    <[
+        build:src 
+        build:components
+    ]>
+    
+
 gulp.task \default, -> run-sequence do 
     <[
         build:src 
@@ -124,16 +131,22 @@ gulp.task \default, -> run-sequence do
     ]>
     \dev:server 
 
+gulp.task \deploy:clean, (cb) ->
+    (require 'del') <[./build/**/*]>, cb
+    
+gulp.task \deploy:copy, ->
+    gulp.src ['./public/**/*.{html,js,css}']
+    .pipe gulp.dest './build'
 
-gulp.task \deploy-gh-pages, ->
-    gulp.src './public/index.html'
-    .pipe gulp.dest './gh-pages'
+gulp.task \deploy:gh, ->
+    gulp.src './build/**/*'
+    .pipe (require 'gulp-gh-pages')!
 
-    gulp.src './public/components/*.js'
-    .pipe gulp.dest './gh-pages/components'
-
-    gulp.src './public/components/*.css'
-    .pipe gulp.dest './gh-pages/components'
+gulp.task \deploy, -> run-sequence do
+    \build
+    \deploy:clean
+    \deploy:copy
+    \deploy:gh
 
 
     # https://github.com/shinnn/gulp-gh-pages
