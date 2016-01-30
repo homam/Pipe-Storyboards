@@ -27,6 +27,7 @@
     "nib": "^1.1.0",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
+    "react-router": "^2.0.0-rc5",
     "run-sequence": "^1.1.5",
     "underscore": "^1.8.3",
     "vinyl-source-stream": "^1.1.0",
@@ -39,9 +40,11 @@
   "dependencies": {
     "gulp-gh-pages": "^0.5.4",
     "history": "^2.0.0-rc2",
-    "pipe-storyboard": "0.0.8",
-    "prelude-extension": "0.0.8",
+    "pipe-storyboard": "^0.0.8",
+    "prelude-extension": "^0.0.8",
     "prelude-ls": "^1.1.1",
+    "react-addons-css-transition-group": "^0.14.7",
+    "react-addons-shallow-compare": "^0.14.7",
     "react-router": "^2.0.0-rc4",
     "through2": "^2.0.0"
   }
