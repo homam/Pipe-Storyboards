@@ -111,22 +111,16 @@ gulp.task \coverage, ->
         .pipe write-reports!
         .on \finish, -> process.exit!
 
-gulp.task \build:src, <[build:src:styles build:src:scripts]>
-gulp.task \watch:src, <[watch:src:styles watch:src:scripts]>
-gulp.task \build:components, <[build:components:styles build:components:scripts]>
-gulp.task \build, -> run-sequence do 
-    <[
-        build:src 
-        build:components
-    ]>
-
+# clean build directory
 gulp.task \deploy:clean, (cb) ->
     (require 'del') <[./build/**/*]>, cb
     
+# copy generated files (js, css) to build directory
 gulp.task \deploy:copy, ->
     gulp.src ['./public/**/*.{html,js,css}']
     .pipe gulp.dest './build'
 
+# copy files from build directory to gh-pages branch
 gulp.task \deploy:gh, ->
     gulp.src './build/**/*'
     .pipe (require 'gulp-gh-pages')!
@@ -136,8 +130,14 @@ gulp.task \deploy, -> run-sequence do
     \deploy:clean
     \deploy:copy
     \deploy:gh
-    
+    # https://github.com/shinnn/gulp-gh-pages
+    # https://www.npmjs.com/package/gulp-clean
+    # https://github.com/peter-vilja/gulp-clean/blob/master/index.js
 
+gulp.task \build:src, <[build:src:styles build:src:scripts]>
+gulp.task \watch:src, <[watch:src:styles watch:src:scripts]>
+gulp.task \build:components, <[build:components:styles build:components:scripts]>
+gulp.task \build, -> run-sequence \build:src, \build:components
 gulp.task \default, -> run-sequence do 
     <[
         build:src 
@@ -147,8 +147,3 @@ gulp.task \default, -> run-sequence do
         build-and-watch:components:scripts
     ]>
     \dev:server 
-
-
-    # https://github.com/shinnn/gulp-gh-pages
-    # https://www.npmjs.com/package/gulp-clean
-    # https://github.com/peter-vilja/gulp-clean/blob/master/index.js
