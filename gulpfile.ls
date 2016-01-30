@@ -119,17 +119,6 @@ gulp.task \build, -> run-sequence do
         build:src 
         build:components
     ]>
-    
-
-gulp.task \default, -> run-sequence do 
-    <[
-        build:src 
-        watch:src 
-        build:components:styles 
-        watch:components:styles 
-        build-and-watch:components:scripts
-    ]>
-    \dev:server 
 
 gulp.task \deploy:clean, (cb) ->
     (require 'del') <[./build/**/*]>, cb
@@ -147,6 +136,17 @@ gulp.task \deploy, -> run-sequence do
     \deploy:clean
     \deploy:copy
     \deploy:gh
+    
+
+gulp.task \default, -> run-sequence do 
+    <[
+        build:src 
+        watch:src 
+        build:components:styles 
+        watch:components:styles 
+        build-and-watch:components:scripts
+    ]>
+    \dev:server 
 
 
     # https://github.com/shinnn/gulp-gh-pages
